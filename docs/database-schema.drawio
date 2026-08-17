@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-08-17T00:00:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="restaurant-kitchen-schema" name="Page-1">
+    <mxGraphModel dx="1000" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="cook" value="Cook&lt;br&gt;----------------&lt;br&gt;id (PK)&lt;br&gt;username&lt;br&gt;years_of_experience" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;strokeColor=#000000;fillColor=#ffffff;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="210" width="210" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="dish-type" value="DishType&lt;br&gt;----------------&lt;br&gt;id (PK)&lt;br&gt;name" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;strokeColor=#000000;fillColor=#ffffff;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="390" y="40" width="210" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="dish" value="Dish&lt;br&gt;----------------&lt;br&gt;id (PK)&lt;br&gt;name&lt;br&gt;price&lt;br&gt;dish_type (FK)" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;strokeColor=#000000;fillColor=#ffffff;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="390" y="210" width="210" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="ingredient" value="Ingredient&lt;br&gt;----------------&lt;br&gt;id (PK)&lt;br&gt;name" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;strokeColor=#000000;fillColor=#ffffff;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="740" y="210" width="210" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="type-dish-edge" value="1 : many" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;strokeColor=#000000;" edge="1" parent="1" source="dish-type" target="dish">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cook-dish-edge" value="many : many" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;strokeColor=#000000;" edge="1" parent="1" source="cook" target="dish">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ingredient-dish-edge" value="many : many" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;strokeColor=#000000;" edge="1" parent="1" source="dish" target="ingredient">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

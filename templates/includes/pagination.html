@@ -1,0 +1,36 @@
+{% if is_paginated %}
+  <nav aria-label="Page navigation" class="mt-4">
+    <ul class="pagination justify-content-center">
+      <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
+        {% if page_obj.has_previous %}
+          <a
+              class="page-link"
+              href="?page={{ page_obj.previous_page_number }}{% if query %}&amp;q={{ query|urlencode }}{% endif %}"
+          >Previous</a>
+        {% else %}
+          <span class="page-link">Previous</span>
+        {% endif %}
+      </li>
+
+      {% for page_number in paginator.page_range %}
+        <li class="page-item {% if page_obj.number == page_number %}active{% endif %}">
+          <a
+              class="page-link"
+              href="?page={{ page_number }}{% if query %}&amp;q={{ query|urlencode }}{% endif %}"
+          >{{ page_number }}</a>
+        </li>
+      {% endfor %}
+
+      <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
+        {% if page_obj.has_next %}
+          <a
+              class="page-link"
+              href="?page={{ page_obj.next_page_number }}{% if query %}&amp;q={{ query|urlencode }}{% endif %}"
+          >Next</a>
+        {% else %}
+          <span class="page-link">Next</span>
+        {% endif %}
+      </li>
+    </ul>
+  </nav>
+{% endif %}

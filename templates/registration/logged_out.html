@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Logged out | Kitchen Service{% endblock %}
+
+{% block content %}
+  <div class="row justify-content-center py-5">
+    <div class="col-md-7 col-lg-5">
+      <div class="card shadow-sm text-center">
+        <div class="card-body p-4">
+          <h1 class="h3">You are logged out</h1>
+          <p class="text-body-secondary">Thank you for using Kitchen Service.</p>
+          <a class="btn btn-primary" href="{% url 'login' %}">Log in again</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Dishes | Kitchen Service{% endblock %}
+
+{% block content %}
+  <div class="page-heading">
+    <div>
+      <h1>Dishes</h1>
+      <p class="text-body-secondary">Meals prepared by the restaurant kitchen.</p>
+    </div>
+    <a class="btn btn-primary" href="{% url 'kitchen:dish-create' %}">Add dish</a>
+  </div>
+
+  <form class="search-form mb-3" method="get">
+    <div class="input-group">
+      <input
+          class="form-control"
+          type="search"
+          name="q"
+          value="{{ query }}"
+          placeholder="Search by dish name"
+          aria-label="Search dishes"
+      >
+      <button class="btn btn-outline-secondary" type="submit">Search</button>
+      {% if query %}
+        <a class="btn btn-outline-secondary" href="{% url 'kitchen:dish-list' %}">Clear</a>
+      {% endif %}
+    </div>
+  </form>
+
+  <div class="card table-responsive">
+    <table class="table table-hover align-middle mb-0">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Price</th>
+          <th class="text-end">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for dish in dish_list %}
+          <tr>
+            <td>
+              <a class="fw-semibold" href="{% url 'kitchen:dish-detail' pk=dish.pk %}">
+                {{ dish.name }}
+              </a>
+            </td>
+            <td>{{ dish.dish_type.name }}</td>
+            <td>${{ dish.price }}</td>
+            <td class="text-end text-nowrap">
+              <a class="btn btn-sm btn-outline-secondary" href="{% url 'kitchen:dish-update' pk=dish.pk %}">
+                Edit
+              </a>
+              <a class="btn btn-sm btn-outline-danger" href="{% url 'kitchen:dish-delete' pk=dish.pk %}">
+                Delete
+              </a>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="4" class="empty-state">No dishes found.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% include "includes/pagination.html" %}
+{% endblock %}

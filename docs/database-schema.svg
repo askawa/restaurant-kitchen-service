@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="440" viewBox="0 0 1000 440" role="img" aria-labelledby="title description">
+  <title id="title">Restaurant Kitchen Service database schema</title>
+  <desc id="description">Simple diagram of Cook, DishType, Dish, and Ingredient models.</desc>
+  <style>
+    text { font-family: Arial, sans-serif; fill: #000; }
+    .model { font-size: 16px; font-weight: bold; }
+    .field { font-size: 14px; }
+    .line { stroke: #000; stroke-width: 1.5; fill: none; }
+    .relation { font-size: 13px; }
+  </style>
+  <rect width="1000" height="440" fill="#fff"/>
+  <g>
+    <rect x="40" y="200" width="210" height="120" fill="#fff" stroke="#000"/>
+    <text x="52" y="225" class="model">Cook</text>
+    <line x1="50" y1="236" x2="240" y2="236" class="line"/>
+    <text x="52" y="260" class="field">id (PK)</text>
+    <text x="52" y="282" class="field">username</text>
+    <text x="52" y="304" class="field">years_of_experience</text>
+  </g>
+  <g>
+    <rect x="395" y="40" width="210" height="95" fill="#fff" stroke="#000"/>
+    <text x="407" y="65" class="model">DishType</text>
+    <line x1="405" y1="76" x2="595" y2="76" class="line"/>
+    <text x="407" y="102" class="field">id (PK)</text>
+    <text x="407" y="124" class="field">name</text>
+  </g>
+  <g>
+    <rect x="395" y="200" width="210" height="140" fill="#fff" stroke="#000"/>
+    <text x="407" y="225" class="model">Dish</text>
+    <line x1="405" y1="236" x2="595" y2="236" class="line"/>
+    <text x="407" y="260" class="field">id (PK)</text>
+    <text x="407" y="282" class="field">name</text>
+    <text x="407" y="304" class="field">price</text>
+    <text x="407" y="326" class="field">dish_type (FK)</text>
+  </g>
+  <g>
+    <rect x="750" y="200" width="210" height="95" fill="#fff" stroke="#000"/>
+    <text x="762" y="225" class="model">Ingredient</text>
+    <line x1="760" y1="236" x2="950" y2="236" class="line"/>
+    <text x="762" y="262" class="field">id (PK)</text>
+    <text x="762" y="284" class="field">name</text>
+  </g>
+  <line x1="500" y1="135" x2="500" y2="200" class="line"/>
+  <text x="515" y="175" class="relation">1 : many</text>
+  <line x1="250" y1="260" x2="395" y2="260" class="line"/>
+  <text x="268" y="245" class="relation">many : many</text>
+  <line x1="605" y1="260" x2="750" y2="260" class="line"/>
+  <text x="620" y="245" class="relation">many : many</text>
+</svg>

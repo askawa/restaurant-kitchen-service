@@ -1,0 +1,9 @@
+[flake8]
+select = E,F,W
+max-line-length = 88
+inline-quotes = double
+exclude =
+    .git,
+    .venv,
+    migrations,
+    staticfiles
